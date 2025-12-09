@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a2e;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#unsupported {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.2), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(248, 113, 113, 0.25), transparent 40%),
+    #0b1021;
+  color: #e5e7eb;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+}
+
+#unsupported.visible {
+  display: flex;
+}
+
+.unsupported-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px 28px;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+.unsupported-card h1 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.unsupported-card p {
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0 0 16px;
+}
+
+.orbit {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 12px;
+}
+
+.orbit .planet {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  animation: spin 9s linear infinite;
+}
+
+.orbit .satellite {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #60a5fa, #a855f7);
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.6);
+  transform-origin: -50px -30px;
+  animation: spin 3.2s linear infinite reverse;
+}
+
+.orbit .satellite:nth-child(3) {
+  width: 12px;
+  height: 12px;
+  transform-origin: -70px 20px;
+  animation-duration: 4.4s;
+  opacity: 0.8;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
